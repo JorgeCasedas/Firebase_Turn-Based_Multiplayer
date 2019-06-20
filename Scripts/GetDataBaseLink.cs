@@ -25,15 +25,14 @@ public class GetDataBaseLink : MonoBehaviour {
                 //app = FirebaseApp.DefaultInstance; This line of code FREEZES UNITY
 
                 FirebaseApp.DefaultInstance.SetEditorDatabaseUrl("https://basedatataskrk.firebaseio.com/");
-                //Line of code below MAKES UNITY WORK HALLELUJAH PRAISE THE MOTHERFUCKING GOD IT TOOK ME 5 FCKING HOURS WITH UNITY CRASHING EVERY SECOND
-                //The fcking documentation doesnt say this
+                //Line of code below makes unity work 
+                //this is not in the documentation
                 if (FirebaseApp.DefaultInstance.Options.DatabaseUrl != null) FirebaseApp.DefaultInstance.SetEditorDatabaseUrl(FirebaseApp.DefaultInstance.Options.DatabaseUrl);
                 db = FirebaseDatabase.DefaultInstance.RootReference;
             }
             else {
                 UnityEngine.Debug.LogError(System.String.Format(
                   "Could not resolve all Firebase dependencies: {0}", dependencyStatus));
-                // Firebase Unity SDK is not safe to use here.
             }
         });
 
